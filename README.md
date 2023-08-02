@@ -17,13 +17,13 @@ Welcome to RefactoringLab, a repository dedicated to improving coding skills thr
 
 Happy refactoring!
 
-## Contributions
-
-Feel free to submit pull requests, create issues, or spread the word.
-
 ## Get $200 DigitalOcean Credit
 
 [![DigitalOcean Referral Badge](https://web-platforms.sfo2.cdn.digitaloceanspaces.com/WWW/Badge%201.svg)](https://www.digitalocean.com/?refcode=64aee93d49da&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge)
+
+## Contributions
+
+Feel free to submit pull requests, create issues, or spread the word.
 
 ## 🔖 License
 
