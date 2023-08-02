@@ -8,6 +8,14 @@
 
 Welcome to RefactoringLab, a repository dedicated to improving coding skills through refactoring challenges. Here, you'll find a collection of poorly written code snippets accompanied by tests. Your task is to refactor the code to make it more efficient, readable, and maintainable while ensuring that the tests still pass.
 
+## Challenges
+
+- [php](./php)
+- - [SmsTemplateDetector](./php/SmsTemplateDetector)
+- [c#](#) (Coming soon)
+- [nodejs](#) (Coming soon)
+- [go](#) (Coming soon)
+
 ## Getting Started
 
 1. Fork this repository and clone it.
