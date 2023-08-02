@@ -12,9 +12,9 @@ Welcome to RefactoringLab, a repository dedicated to improving coding skills thr
 
 - [php](./php)
 - - [SmsTemplateDetector](./php/SmsTemplateDetector)
-- [c#](#) (Coming soon)
-- [nodejs](#) (Coming soon)
-- [go](#) (Coming soon)
+- c# (Coming soon)
+- nodejs (Coming soon)
+- go (Coming soon)
 
 ## Getting Started
 
