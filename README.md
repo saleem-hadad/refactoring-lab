@@ -11,7 +11,7 @@ Welcome to RefactoringLab, a repository dedicated to improving coding skills thr
 ## Getting Started
 
 1. Fork this repository and clone it.
-2. Choose a code snippet you'd like to work on from the "challenges" directory.
+2. Choose a code snippet you'd like to work on for your fav. language.
 3. Refactor the code while making sure the tests in the "tests" directory still pass.
 4. If the tests pass and you're satisfied with your changes, submit a pull request.
 
