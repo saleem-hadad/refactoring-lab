@@ -17,9 +17,9 @@ Welcome to RefactoringLab, a repository dedicated to improving coding skills thr
 
 Happy refactoring!
 
-## Feedback and Discussion
+## Contributions
 
-Join the discussion on [our Discord server](#) to share your ideas, ask questions, and learn from others' approaches.
+Feel free to submit pull requests, create issues, or spread the word.
 
 ## Get $200 DigitalOcean Credit
 
