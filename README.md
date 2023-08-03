@@ -1,7 +1,7 @@
 <h1 align="center"><img height="150" src="./logo.png" /><br> RefactoringLab</h1>
 
 <p align="center">
-  <b>A collection of poorly written codes with tests where you can practice improving them and submit better versions</b></br>
+  <b>A collection of codes with tests where you can practice improving them and submit better versions</b></br>
 </p>
 
 <br />
@@ -11,9 +11,10 @@ Welcome to RefactoringLab, a repository dedicated to improving coding skills thr
 ## Challenges
 
 - [php](./php)
-- - [SmsTemplateDetector](./php/SmsTemplateDetector)
+- - [sms-template-detector](./php/sms-template-detector)
+- [js/nodejs](./js)
+- - [object-to-json-object](./js/object-to-json-object)
 - c# (Coming soon)
-- nodejs (Coming soon)
 - go (Coming soon)
 
 ## Getting Started
