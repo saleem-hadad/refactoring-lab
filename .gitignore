@@ -1,2 +1,35 @@
 node_modules
 .idea
+vendor/
+
+/vendor/
+/old-vendor/
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Laravel 4 specific
+bootstrap/compiled.php
+app/storage/
+
+# Laravel 5 & Lumen specific
+public/storage
+public/hot
+storage/*.key
+.env
+.idea
+Homestead.yaml
+Homestead.json
+/.vagrant
+# .env.example
+**/clockwork/
+**/clockwork/index
+**/.DS_Store
+
+todo-me.md
+report.csv
+
+_ide_helper_models.php
+_ide_helper.php
+composer.phar
+/_ide_helper.php

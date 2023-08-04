@@ -1,28 +1,36 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App;
 
 class SmsTemplateDetector
 {
-    public function detect($sms)
-    {
-        $templates = [
-            'Purchase of {amount} with {card} at {brand},',
-            'Payment of {amount} to {brand} with {card}.',
-        ];
+    private array $templates = [
+        'Payment of {amount} to {brand} with {card},',
+        'Purchase of {amount} with {card} at {brand},',
+    ];
 
-        foreach($templates as $template) {
+    private array $patterns = [
+        '/\{amount\}/' => '(.*?)',
+        '/\{brand\}/' => '(.*?)',
+        '/\{card\}/' => '(.*?)',
+    ];
+
+    public function detect(string $sms): ?array
+    {
+        foreach ($this->templates as  $template) {
             $templateCopy = $template;
 
-            $templateCopy = str_replace("{amount}", "(.*?)", $templateCopy);
-            $templateCopy = str_replace("{brand}", "(.*?)", $templateCopy);
-            $templateCopy = str_replace("{card}", "(.*?)", $templateCopy);
-            $templateCopy = str_replace("{account}", "(.*?)", $templateCopy);
-            $templateCopy = str_replace("{datetime}", "(.*?(?=\.))", $templateCopy);
-            
-            if(preg_match("/{$templateCopy}/", $sms, $matchedParts)) {
+            $templateCopy = preg_replace(
+                pattern: array_keys($this->patterns),
+                replacement: array_values($this->patterns),
+                subject: (string) $templateCopy
+            );
+
+
+            if (preg_match("/{$templateCopy}/", $sms, $matchedParts)) {
                 $partsWithValues = $this->getPartsWithValues($matchedParts, $template);
-                
                 return [$template, $partsWithValues];
             }
         }
@@ -30,37 +38,32 @@ class SmsTemplateDetector
         return null;
     }
 
-    protected function getPartsWithValues($matchedParts, $templateBody)
+    protected function getPartsWithValues(array $matchedParts, string $templateBody): array
     {
         $partsPositionsInTemplate = [];
 
-        if(strpos($templateBody, "{amount}") !== false) {
+        if (strpos($templateBody, "{amount}")) {
             $partsPositionsInTemplate['amount'] = strpos($templateBody, "{amount}");
         }
-        if(strpos($templateBody, "{brand}") !== false) {
+
+        if (strpos($templateBody, "{brand}")) {
             $partsPositionsInTemplate['brand'] = strpos($templateBody, "{brand}");
         }
-        if(strpos($templateBody, "{card}") !== false) {
+        if (strpos($templateBody, "{card}")) {
             $partsPositionsInTemplate['card'] = strpos($templateBody, "{card}");
         }
-        if(strpos($templateBody, "{account}") !== false) {
-            $partsPositionsInTemplate['account'] = strpos($templateBody, "{account}");
-        }
-        if(strpos($templateBody, "{datetime}") !== false) {
-            $partsPositionsInTemplate['datetime'] = strpos($templateBody, "{datetime}");
-        }
-    
+
         asort($partsPositionsInTemplate);
 
         $index = 1;
         $partsWithValues = [];
-        foreach($partsPositionsInTemplate as $part => $value) {
-            if(! empty($matchedParts[$index])) {
+        foreach (array_keys($partsPositionsInTemplate) as $part) {
+            if (isset($matchedParts[$index])) {
                 $partsWithValues[$part] = $matchedParts[$index];
             }
             $index++;
         }
-        
+
         return $partsWithValues;
     }
 }
