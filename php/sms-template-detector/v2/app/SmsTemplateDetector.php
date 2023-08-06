@@ -70,4 +70,9 @@ class SmsTemplateDetector
             subject: (string) $template
         );
     }
+
+    public function functionName()
+    {
+
+    }
 }
