@@ -17,8 +17,6 @@ class SmsTemplateDetector
         '/\{card\}/' => '(.*?)',
     ];
 
-    // ss
-
 
     public function detect(string $sms): ?array
     {
