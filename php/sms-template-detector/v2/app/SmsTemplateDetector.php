@@ -17,17 +17,12 @@ class SmsTemplateDetector
         '/\{card\}/' => '(.*?)',
     ];
 
+
     public function detect(string $sms): ?array
     {
         foreach ($this->templates as  $template) {
-            $templateCopy = $template;
 
-            $templateCopy = preg_replace(
-                pattern: array_keys($this->patterns),
-                replacement: array_values($this->patterns),
-                subject: (string) $templateCopy
-            );
-
+            $templateCopy = $this->transformTemplateToRegex($template);
 
             if (preg_match("/{$templateCopy}/", $sms, $matchedParts)) {
                 $partsWithValues = $this->getPartsWithValues($matchedParts, $template);
@@ -65,5 +60,14 @@ class SmsTemplateDetector
         }
 
         return $partsWithValues;
+    }
+
+    private function transformTemplateToRegex($template)
+    {
+        return preg_replace(
+            pattern: array_keys($this->patterns),
+            replacement: array_values($this->patterns),
+            subject: (string) $template
+        );
     }
 }
